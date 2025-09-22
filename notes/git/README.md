@@ -36,6 +36,9 @@ Commit messages must always be wrapped in quotes (" ") - otherwise git thinks it
 **Git Push:**
 
 Send the commits from local repo to remote repo (Github).
+
 First push -                        git push -u origin main  
+
 (-u helps git remember that the local branch 'main' should always push to this remote branch 'origin/main)
+
 Later pushes ( after -u is set):    git push  (Since the upstream branch is already set)
