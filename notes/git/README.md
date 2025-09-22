@@ -14,8 +14,8 @@ Adding changes/files and preparing them for the next commit.
 
 Example:
 
-git add README.md
-git add notes/css/README.md
+<pre> git add README.md
+git add notes/css/README.md </pre>
 
 To add all changes at once:
 
@@ -71,7 +71,9 @@ git remote add origin git@github.com:USERNAME/repo-name.git
 where,
 
 git remote add - tells git about a remote repo.
+
 origin -  the default nickname the "the main remote repo.
+
 git@github.com:USERNAME/repo-name.git - the SSH url of the github repo
 
 To check if it's set correctly - git remote -v 
@@ -88,16 +90,22 @@ git commit -m "message -saves a snapshot locally.
 ### 5. First push (from local to github)
 
 git push -u origin main  #git push -    uploads commits.
+
                          #origin-       the remote repo you set earlier
+
                          #main -        the branch you're pushing
+
                          #-u (upstream)- tells git 'next time, just git push without any args. 
 
 
 ### 6. Everyday workflow after setup.
 
 1. Edit files in vs code and save them
+   
 2. Stage them
+   
 3. Commit them
+   
 4. Push them
 
 
@@ -114,8 +122,11 @@ ALternatively, create a new file in vs code and save changes before you stage, c
 An example of full final flow:
 
 mkdir repo-name
+
 cd repo-name
+
 git init
+
 echo "# Customer Information" > README.md     # ← add a file
 git add README.md
 git commit -m "chore: add initial README"
