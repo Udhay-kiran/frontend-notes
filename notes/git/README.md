@@ -89,30 +89,26 @@ To check if it's set correctly <pre> git remote -v </pre>
 
 Add files to the repo (See below- adding files) and run:
 
-git add .  #stages all new/changed files.
-git commit -m "message -saves a snapshot locally.
+<pre> git add .</pre> #stages all new/changed files.
+<pre> git commit -m "message" </pre> -saves a snapshot locally.
 
 ### 5. First push (from local to github)
 
-git push -u origin main  #git push -    uploads commits.
+```bash
+git push -u origin main  
+```
 
-                         #origin-       the remote repo you set earlier
+`git push` -    uploads commits.
+`origin`-       the remote repo you set earlier
+`main` -        the branch you're pushing
+`-u (upstream)`- tells git 'next time, just git push without any args.
 
-                         #main -        the branch you're pushing
-
-                         #-u (upstream)- tells git 'next time, just git push without any args. 
-
-
-### 6. Everyday workflow after setup.
+### 6. Everyday workflow after setup
 
 1. Edit files in vs code and save them
-   
 2. Stage them
-   
 3. Commit them
-   
 4. Push them
-
 
 ## Add files to your repo (before first commit)
 
@@ -122,19 +118,18 @@ echo "# Customer Information" > README.md
 
 This creates a file called README.md with the one line in double quotes.
 
-ALternatively, create a new file in vs code and save changes before you stage, commit and push them. 
+ALternatively, create a new file in vs code and save changes before you stage, commit and push them.
 
 An example of full final flow:
 
+```bash
 mkdir repo-name
-
 cd repo-name
-
 git init
-
 echo "# Customer Information" > README.md     # ← add a file
 git add README.md
 git commit -m "chore: add initial README"
 git branch -M main
 git remote add origin git@github.com:USERNAME/repo-name.git
 git push -u origin main
+```
