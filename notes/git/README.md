@@ -59,8 +59,7 @@ Ex of SSH URL:  git@github.com:USERNAME/repo-name.git
 ### 2. Initialize repo locally 
 
 ```bash
-mkdir repo-name 
- #makes a folder
+mkdir repo-name  #makes a folder
 
 cd repo-name #moves into the folder
  
@@ -70,8 +69,9 @@ git init  # tells git to track the folder (with a hidden .git folder inside)
 
 ### 3. Connect local- Remote
 
+```bash
 git remote add origin git@github.com:USERNAME/repo-name.git
-
+```
 where,
 
 git remote add - tells git about a remote repo.
@@ -80,7 +80,7 @@ origin -  the default nickname the "the main remote repo.
 
 git@github.com:USERNAME/repo-name.git - the SSH url of the github repo
 
-To check if it's set correctly - git remote -v 
+To check if it's set correctly <pre> git remote -v </pre>
 
 
 
