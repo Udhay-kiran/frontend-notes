@@ -99,8 +99,11 @@ git push -u origin main
 ```
 
 `git push` -    uploads commits.
+
 `origin`-       the remote repo you set earlier
+
 `main` -        the branch you're pushing
+
 `-u (upstream)`- tells git 'next time, just git push without any args.
 
 ### 6. Everyday workflow after setup
