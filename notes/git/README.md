@@ -72,6 +72,7 @@ git init  # tells git to track the folder (with a hidden .git folder inside)
 ```bash
 git remote add origin git@github.com:USERNAME/repo-name.git
 ```
+
 where,
 
 git remote add - tells git about a remote repo.
