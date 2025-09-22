@@ -15,21 +15,22 @@ Adding changes/files and preparing them for the next commit.
 Example:
 
 <pre> git add README.md
-git add notes/css/README.md </pre>
+      git add notes/css/README.md </pre>
 
 To add all changes at once:
 
-git add .
+<pre> git add . </pre>
 
 
 ### **Git Commit:**
 
 It saves a copy of the staged files (in the add part of the workflow) into git's history.
+
 -m signifies a message that describes the changes made
 
 Example:
 
-git commit -m ":docs: Added new information on customer data to README"
+<pre> git commit -m ":docs: Added new information on customer data to README" </pre>
 
 Commit messages must always be wrapped in quotes (" ") - otherwise git thinks its a filename.
 
@@ -38,11 +39,11 @@ Commit messages must always be wrapped in quotes (" ") - otherwise git thinks it
 
 Send the commits from local repo to remote repo (Github).
 
-First push -                        git push -u origin main  
+First push -                       <pre> git push -u origin main  </pre>
 
 (-u helps git remember that the local branch 'main' should always push to this remote branch 'origin/main)
 
-Later pushes ( after -u is set):    git push  (Since the upstream branch is already set)
+Later pushes ( after -u is set):    <pre> git push </pre>  (Since the upstream branch is already set)
 
 
 ## **Repo Setup**
@@ -57,12 +58,15 @@ Ex of SSH URL:  git@github.com:USERNAME/repo-name.git
 
 ### 2. Initialize repo locally 
 
-mkdir repo-name  #makes a folder
+```bash
+mkdir repo-name 
+ #makes a folder
 
 cd repo-name #moves into the folder
  
 git init  # tells git to track the folder (with a hidden .git folder inside)
 
+```
 
 ### 3. Connect local- Remote
 
