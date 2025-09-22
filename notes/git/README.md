@@ -75,11 +75,11 @@ git remote add origin git@github.com:USERNAME/repo-name.git
 
 where,
 
-git remote add - tells git about a remote repo.
+`git remote add` - tells git about a remote repo.
 
-origin -  the default nickname the "the main remote repo.
+`origin` -  the default nickname the "the main remote repo.
 
-git@github.com:USERNAME/repo-name.git - the SSH url of the github repo
+`git@github.com:USERNAME/repo-name.git` - the SSH url of the github repo
 
 To check if it's set correctly <pre> git remote -v </pre>
 
