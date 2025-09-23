@@ -104,7 +104,7 @@ git push -u origin main
 
 `main` -        the branch you're pushing
 
-`-u (upstream)`- tells git 'next time, just git push without any args.
+`-u (upstream)`- tells git 'next time, just `git push` without any args.
 
 ### 6. Everyday workflow after setup
 
