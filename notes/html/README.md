@@ -121,3 +121,39 @@ Every HTML5 page follows a standard structure. It tells the browser how to inter
 9. `<cite>....</cite>` - Indicates the title of a cited work (italicized)
 10. `<del>....</del>` - Strikethrough -> represents deleted text.
 11. `<ins>....</ins>` - Underlined- represents inserted text.
+
+## HTML Links and Images
+
+### Example Code
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Links and Images Example</title>
+</head>
+<body>
+  <!-- Basic link -->
+  <p>Visit <a href="https://www.example.com">Example Website</a></p>
+
+  <!-- Link that opens in a new tab -->
+  <p>Open <a href="https://www.wikipedia.org" target="_blank">Wikipedia</a> in a new tab</p>
+
+  <!-- Image -->
+  <p>Here is an image:</p>
+  <img src="https://via.placeholder.com/150" alt="Placeholder image">
+
+  <!-- Image as a link -->
+  <p>Click the image to go to Google:</p>
+  <a href="https://www.google.com">
+    <img src="https://via.placeholder.com/100" alt="Google link">
+  </a>
+</body>
+</html>
+```
+
+1. `<a href= "URL">....</a>` - Anchor tag creates a hyperlink. `href="..."` is the destination URL. Opening tag `<a>` and closing tag `</a>` wrap the clickable text or element.
+2. `target="_blank"` - Opens the link in a new browser tab.
+3. `<img src="..." alt="...">` -  It embeds an image. `src=".."` is the image source (URL or the file path in the local computer).`alt="..."` is the alternative text (shown if the image fails to load, used by screen readers). No closing tag for `<img>`
+4. `<a>` - Image Inside- Wrap an image with `<a>` to make an image clickable (can act like a link).
