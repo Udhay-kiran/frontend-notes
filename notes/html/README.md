@@ -204,3 +204,59 @@ Every HTML5 page follows a standard structure. It tells the browser how to inter
 2. `<ol>....</ol>` - Ordered lists displays items with numbers (1,2,3 by default). Each item is wrapped in `<li>....</li>`. Attribute `type` can change numbering (`type="a"` gives a,b,c).
 3. `<dl>.....</dl>` - Description lists are used for term-definition pairs. `<dt>`- description term, `<dd>`- description detail/defn. 
 4. `<li>`- List item is used inside both ordered and unordered lists to represent a single item. 
+
+## HTML Tables
+
+### Example Code
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tables Example</title>
+</head>
+<body>
+  <h2>Student Grades</h2>
+  <table border="1">
+    <caption>Grade Report</caption>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Subject</th>
+        <th>Grade</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Alice</td>
+        <td>Math</td>
+        <td>A</td>
+      </tr>
+      <tr>
+        <td>Bob</td>
+        <td>Science</td>
+        <td>B+</td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="3">End of Report</td>
+      </tr>
+    </tfoot>
+  </table>
+</body>
+</html>
+```
+
+![Sample output](image.png)
+
+1. `<table>...</table>` - Wraps the whole table and attributes are usually replaced by CSS
+2. `<caption>`- Optional title for the table.
+3. `<thead>...</thead>`- Groups the header rows of the table. Inside it, use `<tr>` (table row) and `<th>`- header cell.
+4. `<tbody> ... </tbody>` - Groups the main bodyrows of the table. Inside it, rows `<tr>` contain cells `<td>` (table data).
+5. `<tfoot> ... </tfoot>` - Groups the footer rows (for ex: like a sum or summary info). 
+6. `<tr>`- Table row- Defines a row in a table.
+7. `<th>`- Table header Cell. Bold centered text by default. Used in header rows to label columns.
+8. `<td>` - Table data cell. Normal table cell (data inside a row).
+9. `colspan` - this attribute allows one cell to span across multiple columns.
