@@ -75,4 +75,49 @@ Every HTML5 page follows a standard structure. It tells the browser how to inter
 7. `<pre>....</pre>` -  Preserves whitespace and line breaks exactly as typed. Useful for code or text like poetry.
 8. `<code>......</code>` - Marks text as inline code and uses monospace font. 
 
+## HTML Specialized Text Tags
 
+### Example Code
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Specialized Text Tags Example</title>
+</head>
+<body>
+  <p>Here is a <span style="color:blue;">blue word</span> inside a paragraph.</p>
+
+  <p>Water formula: H<sub>2</sub>O and exponent: 2<sup>nd</sup></p>
+
+  <p>You can <mark>highlight important text</mark> with the mark tag.</p>
+
+  <p>This is <small>smaller text</small> than normal.</p>
+
+  <p><abbr title="World Health Organization">WHO</abbr> was founded in 1948.</p>
+
+  <blockquote>
+    “The only way to learn a new programming language is by writing programs in it.”
+  </blockquote>
+
+  <p>Citation: <cite>The C Programming Language</cite> by Kernighan & Ritchie</p>
+
+  <p><del>Old Price: $50</del> <ins>New Price: $30</ins></p>
+
+  <p>Inline quote: <q>Code is like humor.</q></p>
+</body>
+</html>
+```
+
+1. `<span>....</span>` - Generic inline container. Used to style specific words with css and has no special meaning by itself.
+2. `<sub>....</sub>` - Subscript text (smaller, lowered)
+3. `<sup>....</sup>` - Superscript text (smaller, raised).
+4. `<mark>....</mark>` - Highlights text (yellow by default in browser)
+5. `<small>.....</small>` - Displays text smaller than the surrounding text.
+6. `<abbr title=".....">.....</abbr>` - Makes an abbreviation; full form appears on hover.
+7. `<blockquote>.....</blockquote>` - For long quotations (usually intended by browsers).
+8. `<q>....</q>` - Inline quotation; browsers automatically add quotes.
+9. `<cite>....</cite>` - Indicates the title of a cited work (italicized)
+10. `<del>....</del>` - Strikethrough -> represents deleted text.
+11. `<ins>....</ins>` - Underlined- represents inserted text.
