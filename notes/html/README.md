@@ -157,3 +157,50 @@ Every HTML5 page follows a standard structure. It tells the browser how to inter
 2. `target="_blank"` - Opens the link in a new browser tab.
 3. `<img src="..." alt="...">` -  It embeds an image. `src=".."` is the image source (URL or the file path in the local computer).`alt="..."` is the alternative text (shown if the image fails to load, used by screen readers). No closing tag for `<img>`
 4. `<a>` - Image Inside- Wrap an image with `<a>` to make an image clickable (can act like a link).
+
+## HTML Lists
+
+### Example Code
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lists Example</title>
+</head>
+<body>
+  <!-- Unordered List -->
+  <h2>Shopping List</h2>
+  <ul>
+    <li>Milk</li>
+    <li>Bread</li>
+    <li>Eggs</li>
+  </ul>
+
+  <!-- Ordered List -->
+  <h2>Steps to Make Tea</h2>
+  <ol>
+    <li>Boil water</li>
+    <li>Add tea leaves</li>
+    <li>Pour into a cup</li>
+  </ol>
+
+  <!-- Description List -->
+  <h2>Programming Terms</h2>
+  <dl>
+    <dt>HTML</dt>
+    <dd>The standard markup language for web pages.</dd>
+    <dt>CSS</dt>
+    <dd>Stylesheet language used to design HTML content.</dd>
+    <dt>JavaScript</dt>
+    <dd>A scripting language for interactive web pages.</dd>
+  </dl>
+</body>
+</html>
+```
+
+1. `<ul>...</ul>` - Unordered lists displays items with bullet points. Each item is wrapped in `<li>....</li>` (list item)
+2. `<ol>....</ol>` - Ordered lists displays items with numbers (1,2,3 by default). Each item is wrapped in `<li>....</li>`. Attribute `type` can change numbering (`type="a"` gives a,b,c).
+3. `<dl>.....</dl>` - Description lists are used for term-definition pairs. `<dt>`- description term, `<dd>`- description detail/defn. 
+4. `<li>`- List item is used inside both ordered and unordered lists to represent a single item. 
