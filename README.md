@@ -1,5 +1,3 @@
-#Frontend Notes
-## Table of Contents
-[HTML Notes](notes/html/README.md)
-[CSS Notes](notes/css/README.md)
-[JS Notes](notes/js/README.md)
+Repo contains JS notes from the following:
+**/general_notes**- Early self study notes
+**/meta_course_notes** - Notes written during the meta Front-end certificate

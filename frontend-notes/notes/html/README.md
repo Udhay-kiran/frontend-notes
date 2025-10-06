@@ -260,5 +260,3 @@ Every HTML5 page follows a standard structure. It tells the browser how to inter
 7. `<th>`- Table header Cell. Bold centered text by default. Used in header rows to label columns.
 8. `<td>` - Table data cell. Normal table cell (data inside a row).
 9. `colspan` - this attribute allows one cell to span across multiple columns.
-
-
