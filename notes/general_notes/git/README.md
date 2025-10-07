@@ -136,3 +136,116 @@ git branch -M main
 git remote add origin git@github.com:USERNAME/repo-name.git
 git push -u origin main
 ```
+
+## Pull vs Push --rebase
+
+### The problem 
+
+When git push is used and the following error appears:
+
+```bash
+! [rejected] main -> main (fetch first)
+error: failed to push some refs..
+
+it means **your local branch is behind the remote**.  
+Someone (or you, via GitHub web edits) has made commits that your local copy doesn’t yet have.
+
+You must first **update your local branch** with those remote commits before pushing again.
+```
+
+### Solution
+
+There are two ways to update:
+
+#### git pull
+
+````bash
+git pull origin main
+````
+
+This performs the following steps:
+1. `git fetch`- downloads the latest commits from GitHub.
+2. `git merge`- merges those commits into your local branch.
+
+#### git pull --rebase
+
+```bash
+git pull origin main --rebase
+```
+
+This also fetches new commits. but instead of merging it:
+1. Temporarily removes your local commits.
+2. Applies the remote commits first.
+3. Re-applies (re-bases) your commits on top of them. 
+
+(This option is better to keep the history clean and linear)
+
+### Visualization (taken from Chatgpt):
+
+#### Regular `git pull`
+
+```css
+A --- B --- C  (remote/main)
+       \
+        D --- E  (local/main)
+```
+
+#### After `git pull` - merge commit F:
+
+```css
+A --- B --- C
+       \     \
+        D --- E --- F  (merge)
+```
+
+#### `git pull --rebase`
+
+```css
+A --- B --- C  (remote/main)
+       \
+        D --- E  (local/main)
+```
+
+#### After rebase:
+
+```css
+A --- B --- C --- D' --- E'   (clean, linear)
+```
+
+### When to use which
+
+| Scenario                                       | Recommended Command     | Reason                           |
+| ---------------------------------------------- | ----------------------- | -------------------------------- |
+| Working alone on a personal repo               | `git pull --rebase`     | Keeps history neat               |
+| Team project with shared branches              | `git pull`              | Preserves branch merge structure |
+| You already started a rebase but got conflicts | `git rebase --continue` | Resume after fixing conflicts    |
+
+
+### Handling conflicts during Rebase:
+
+if a conflict appears:
+
+```bash
+git status          # See which files conflict
+# Edit files manually to fix them
+git add .
+git rebase --continue
+```
+
+To cancel rebase:
+
+```bash
+git rebase --abort
+```
+
+### Common workflow 
+
+When git rejects a push
+
+```bash
+git pull origin main --rebase
+# (resolve conflicts if any)
+git push origin main
+```
+
+This syncs the local branch with github while keeping history readable.
