@@ -70,7 +70,7 @@ typeof Symbol();    // "symbol"
 > **Operators** are special symbols used to perform operations on values and variables.  
 They help JavaScript calculate, compare, and make logical decisions.
 
-JavaScript operators are grouped by purpose: **Arithmetic**, **Assignment**, **Comparison**, **Logical**, **String**, and **Others**.
+JavaScript operators are grouped by purpose: **Arithmetic**, **Assignment**, **Comparison**, **Logical (Boolean) **, **String**, and **Others**.
 
 ---
 
@@ -124,15 +124,24 @@ Used to compare two values. The result is always a **Boolean** (`true` or `false
 
 ---
 
-## Logical Operators
+## Logical (Boolean) Operators
 
 Used to combine or invert Boolean expressions.
 
 | Operator | Description | Example | Output |
 |-----------|--------------|----------|--------|
 | `&&` | Logical AND (true only if both are true) | `(5 > 3 && 8 > 6)` | `true` |
-| `||` | Logical OR (true if at least one is true) | `(5 > 10 || 3 < 8)` | `true` |
+| `\|\|` | Logical OR (true if at least one is true) | `(5 > 10 \|\| 3 < 8)` | `true` |
 | `!` | Logical NOT (reverses the value) | `!(5 > 3)` | `false` |
+
+### Truth Table
+
+| A | B | `A && B` | `A \|\| B` | `!A` |
+|:-:|:-:|:---------:|:-----------:|:----:|
+| true | true | true | true | false |
+| true | false | false | true | false |
+| false | true | false | true | true |
+| false | false | false | false | true |
 
 ---
 
