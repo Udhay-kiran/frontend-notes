@@ -63,4 +63,85 @@ typeof 123n;        // "bigint"
 typeof Symbol();    // "symbol"
 ```
 
+## JavaScript Operators
 
+### Overview
+
+> **Operators** are special symbols used to perform operations on values and variables.  
+They help JavaScript calculate, compare, and make logical decisions.
+
+JavaScript operators are grouped by purpose: **Arithmetic**, **Assignment**, **Comparison**, **Logical**, **String**, and **Others**.
+
+---
+
+## Arithmetic Operators
+
+Used to perform basic mathematical calculations.
+
+| Operator | Description | Example | Output |
+|-----------|--------------|----------|--------|
+| `+` | Addition | `5 + 2` | `7` |
+| `-` | Subtraction | `5 - 2` | `3` |
+| `*` | Multiplication | `5 * 2` | `10` |
+| `/` | Division | `10 / 2` | `5` |
+| `%` | Modulus (remainder) | `10 % 3` | `1` |
+| `**` | Exponentiation | `2 ** 3` | `8` |
+| `++` | Increment by 1 | `let a=5; a++;` | `6` |
+| `--` | Decrement by 1 | `let a=5; a--;` | `4` |
+
+---
+
+## Assignment Operators
+
+Used to assign or update values of variables.
+
+| Operator | Description | Example | Equivalent To |
+|-----------|--------------|----------|---------------|
+| `=` | Assign value | `x = 10` | – |
+| `+=` | Add and assign | `x += 5` | `x = x + 5` |
+| `-=` | Subtract and assign | `x -= 3` | `x = x - 3` |
+| `*=` | Multiply and assign | `x *= 2` | `x = x * 2` |
+| `/=` | Divide and assign | `x /= 2` | `x = x / 2` |
+| `%=` | Modulus and assign | `x %= 3` | `x = x % 3` |
+| `**=` | Power and assign | `x **= 2` | `x = x ** 2` |
+
+---
+
+## Comparison Operators
+
+Used to compare two values. The result is always a **Boolean** (`true` or `false`).
+
+| Operator | Description | Example | Output |
+|-----------|--------------|----------|--------|
+| `==` | Equal to (loose comparison) | `5 == "5"` | `true` |
+| `===` | Strict equal to (checks value **and** type) | `5 === "5"` | `false` |
+| `!=` | Not equal to (loose) | `5 != "5"` | `false` |
+| `!==` | Strict not equal to | `5 !== "5"` | `true` |
+| `>` | Greater than | `10 > 5` | `true` |
+| `<` | Less than | `10 < 5` | `false` |
+| `>=` | Greater than or equal to | `10 >= 10` | `true` |
+| `<=` | Less than or equal to | `8 <= 10` | `true` |
+
+---
+
+## Logical Operators
+
+Used to combine or invert Boolean expressions.
+
+| Operator | Description | Example | Output |
+|-----------|--------------|----------|--------|
+| `&&` | Logical AND (true only if both are true) | `(5 > 3 && 8 > 6)` | `true` |
+| `||` | Logical OR (true if at least one is true) | `(5 > 10 || 3 < 8)` | `true` |
+| `!` | Logical NOT (reverses the value) | `!(5 > 3)` | `false` |
+
+---
+
+## String Operator
+
+- The `+` operator can also **concatenate (join)** strings.
+
+```js
+let first = "Hello";
+let last = "World";
+console.log(first + " " + last); // "Hello World"
+```
