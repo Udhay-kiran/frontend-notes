@@ -154,3 +154,212 @@ let first = "Hello";
 let last = "World";
 console.log(first + " " + last); // "Hello World"
 ```
+
+## Writing statements and Conditional Statements in JavaScript
+
+### Overview
+
+> JavaScript programs are made up of **statements** — each statement performs an action.  
+> Conditional statements control *which* statements run, based on whether conditions are true or false.
+
+### Writing Statements
+
+| Concept | Description | Example |
+|----------|--------------|----------|
+| **Statement** | A single line of code that performs an action. | `let x = 10;` |
+| **Block** | A group of statements inside `{}` braces. | `{ let y = 5; console.log(y); }` |
+| **Semicolon (;)** | Marks the end of a statement (optional but recommended). | `console.log("Hello");` |
+
+Each statement executes **in order** unless changed by control flow (like `if`, `for`, or `while`).
+
+---
+
+### Conditional Statements
+
+Conditional statements let JavaScript **decide which code to run** depending on a condition.
+
+---
+
+#### a) The `if` Statement
+
+Runs a block of code **only if** a condition is true.
+
+```js
+let age = 20;
+
+if (age >= 18) {
+  console.log("You are an adult.");
+}
+```
+
+---
+
+#### b) The `if...else` statement
+
+Adds an alternative block that runs if the condition is false. 
+
+```js
+let isLoggedIn = false;
+
+if (isLoggedIn) {
+  console.log("Welcome back!");
+} else {
+  console.log("Please log in.");
+}
+```
+
+#### c) The `if...else if...else chain`
+
+Used to check multiple conditions
+
+```js
+let score = 75;
+
+if (score >= 90) {
+  console.log("Grade: A");
+} else if (score >= 75) {
+  console.log("Grade: B");
+} else if (score >= 50) {
+  console.log("Grade: C");
+} else {
+  console.log("Grade: F");
+}
+```
+
+Javascript checks each condition from top to bottom and stops once its true.
+
+#### d) The `switch` statement
+
+Used when you want to test one variable against multiple possible values.
+
+```js
+let day = "Monday";
+
+switch (day) {
+  case "Monday":
+    console.log("Start of the week!");
+    break;
+  case "Friday":
+    console.log("Weekend is near!");
+    break;
+  case "Saturday":
+  case "Sunday":
+    console.log("It's the weekend!");
+    break;
+  default:
+    console.log("Just another day.");
+}
+```
+
+`break` stops the execution after a match;
+`default` runs if no case matches.
+
+#### e) The `break` Statement
+
+
+> The **`break`** statement is used to **immediately exit** a loop or a `switch` statement.  
+> When JavaScript encounters `break`, it stops executing the current block and jumps to the next line of code **after** the loop or switch.
+
+---
+
+##### Using `break` in Loops
+
+| Purpose | Example Code | Explanation |
+|----------|---------------|--------------|
+| Exit a loop early when a condition is met | ```js let i = 0; while (i < 10) { if (i === 5) break; console.log(i); i++; } console.log("Loop stopped at", i); ``` | The loop stops when `i` becomes 5. Numbers 0–4 are printed, then the loop exits. |
+
+`break` is useful when you’ve **found what you’re looking for** and don’t need to continue looping.
+
+---
+
+##### Using `break` in `for` Loops
+
+```js
+for (let num = 1; num <= 10; num++) {
+  if (num === 4) {
+    break; // exit the loop when num = 4
+  }
+  console.log("Number:", num);
+}
+```
+
+#### f) Nested `if` statements
+
+An `if` can be placed inside another for more complex logic:
+
+```js
+let age = 25;
+let hasID = true;
+
+if (age >= 18) {
+  if (hasID) {
+    console.log("Access granted.");
+  } else {
+    console.log("ID required.");
+  }
+} else {
+  console.log("Access denied.");
+}
+```
+
+### Looping Constructs
+
+**Loops** let you repeat a block of code automatically until a condition is **false**. They help avoid writing the same statement multiple times. 
+
+
+#### a) The `for` loop
+
+It is used when **you know how many times** the loop should run.
+
+**Syntax and Example:**
+
+```js
+
+for (initialization; condition; increment) {
+  // code to execute each iteration
+}
+
+Example:
+
+for (let i = 1; i <= 5; i++) {
+  console.log("Iteration:", i);
+}
+```
+
+
+| Part           | Meaning                              | Example     |
+| -------------- | ------------------------------------ | ----------- |
+| Initialization | Runs once before loop starts         | `let i = 1` |
+| Condition      | Checked before each iteration        | `i <= 5`    |
+| Increment      | Updates counter after each iteration | `i++`       |
+
+#### b) The `while` loop:
+
+Used when **you dont know beforehand** how many times to repeat, but you know the stopping condition.
+
+**Syntax and Example:**
+
+while (condition) {
+  // code to execute
+}
+
+```js
+while (condition) {
+  // code to execute
+}
+
+Example:
+
+let count = 1;
+
+while (count <= 3) {
+  console.log("Count is:", count);
+  count++;
+}
+```
+Runs **as long as** the condition is true. If the condition is false at the start, the loop doesn't run at all.
+
+
+
+# Module 2- Building blocks
+
