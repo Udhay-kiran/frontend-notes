@@ -359,7 +359,403 @@ while (count <= 3) {
 ```
 Runs **as long as** the condition is true. If the condition is false at the start, the loop doesn't run at all.
 
-
+---
 
 # Module 2- Building blocks
 
+## Functions
+
+A **function** is a reusable block of code designed to perform a specific task.
+
+**Syntax:**
+
+```js
+function functionName(parameters) {
+  // code to execute
+}
+
+**Example:**
+
+function greet() {
+  console.log("Hello, world!");
+}
+greet(); // function call
+```
+
+### Function parameters and arguments
+
+| Term          | Description                             | Example                        |
+| ------------- | --------------------------------------- | ------------------------------ |
+| **Parameter** | Placeholder in the function definition. | `function greet(name) { ... }` |
+| **Argument**  | Actual value passed to the function.    | `greet("Alice");`              |
+
+```js
+function add(a, b) {
+  console.log(a + b);
+}
+add(3, 4); // Output: 7
+```
+
+### Return statement in a function
+
+Used to **send a result back** from a function.
+
+```js
+function multiply(x, y) {
+  return x * y;
+}
+let result = multiply(4, 5);
+console.log(result); // 20
+```
+
+**Note:** Without `return` a function gives `undefined`.
+
+### Function Expression
+
+Storing a function inside a variable is possible.
+
+```js
+const greet = function(name) {
+  return `Hello, ${name}`;
+};
+console.log(greet("Udhay"));
+```
+
+## Storing data in arrays
+
+An array stores multiple values in a single variable.
+
+```js
+let fruits = ["apple", "banana", "cherry"];
+console.log(fruits[0]); // apple
+console.log(fruits.length); // 3
+```
+
+### **Common array methods**
+
+| Method        | Description            | Example                    | Result                                |
+| ------------- | ---------------------- | -------------------------- | ------------------------------------- |
+| `.push()`     | Adds to end            | `fruits.push("mango")`     | `["apple","banana","cherry","mango"]` |
+| `.pop()`      | Removes last item      | `fruits.pop()`             | `["apple","banana"]`                  |
+| `.shift()`    | Removes first item     | `fruits.shift()`           | `["banana","cherry"]`                 |
+| `.unshift()`  | Adds to start          | `fruits.unshift("grape")`  | `["grape","apple","banana"]`          |
+| `.indexOf()`  | Finds index of value   | `fruits.indexOf("banana")` | `1`                                   |
+| `.includes()` | Checks if value exists | `fruits.includes("apple")` | `true`                                |
+
+
+## Intro to Objects
+
+An **object** groups related data and behaviour (properties and methods).
+
+**Syntax:**
+
+```js
+let person = { //person- name of the object
+  name: "Alice", // name - property key; "Alice"- property value
+  age: 25,
+  greet: function() {
+    console.log("Hello!");
+  }
+};
+```
+
+**Properties:** Variables inside objects. 
+**Methods:** functions inside objects.
+
+### Object literals and Dot Notations
+
+| Syntax              | Description                     | Example                   |
+| ------------------- | ------------------------------- | ------------------------- |
+| **Dot Notation**    | Access property using a dot `.` | `person.name` → `"Alice"` |
+| **Add Property**    | `person.city = "Berlin";`       | Adds new property         |
+| **Modify Property** | `person.age = 30;`              | Updates existing property |
+
+**Example:**
+
+```js
+let car = { brand: "Tesla", model: "Model 3" }; // Car is the object and brand and model are its traits
+console.log(car.brand); // Tesla
+car.year = 2023;
+console.log(car.year); // 2023
+```
+
+### Object literals and Bracket Notation
+
+Bracket notation is used when the property name has spaces or it is stored in a variable.
+
+```js
+let student = {
+  "full name": "John Doe",
+  grade: "A"
+};
+
+console.log(student["full name"]); // John Doe
+
+let key = "grade";
+console.log(student[key]); // A
+```
+
+**Note:** Use bracket Notation when keys are dynamic or not valid identifiers.
+
+### Arrays are objects
+
+In javascript, arrays are a special kind of object with numeric indexes.
+
+```js
+let colors = ["red", "green", "blue"];
+console.log(typeof colors); // "object"
+```
+
+Arrays can also hold mixed data types:
+
+```js
+let mix = ["Hello", 42, true, null];
+```
+
+**Note:** You can access elements like object properties. `colors[0]` -> `"red"`
+
+One of the most commonly used built-in methods on arrays are the `push()` and the `pop()` methods.
+
+To add new items to an array, I can use the `push()` method:
+
+```js
+var fruits = [];
+fruits.push("apple"); // ['apple']
+fruits.push('pear'); // ['apple', 'pear']
+```
+
+To remove the last item from an array, use `pop()`
+
+```js
+fruits.pop();
+console.log(fruits); // ['apple']
+```
+
+**Example tying up arrays and objects:**
+
+We can now build a function that takes all its arguments and pushes them into an array:
+
+```js
+function arrayBuilder(one, two, three) {
+    var arr = [];
+    arr.push(one);
+    arr.push(two);
+    arr.push(three);
+    console.log(arr);
+}
+
+// Now call the array builder function, like for ex:
+
+arrayBuilder('apple', 'pear', 'plum'); // ['apple', 'pear', 'plum']
+
+// I do not necessarily have to console log the new array. Instead, a return keyword can send the array back to wherever the function was called. So the function can provide the result and you can decide what to do with it in your code.
+
+function arrayBuilder(one, two, three) {
+    var arr = [];
+    arr.push(one);
+    arr.push(two);
+    arr.push(three);
+    return arr; // The array is returned to the calling code.
+}
+
+// Now when the function is called 
+
+var myArray = arrayBuilder('apple', 'pear', 'plum');
+
+// The return keyword allows the function to hand the built array back to the variable my Array. You can use it to pass it to another function, print it or manipulate it further. Additionally, I can save this function call to a variable. 
+
+console.log(myArray); // ['apple','pear','plum']
+```
+
+### A closer look at Strings
+
+**Strings are Iterable**, meaning you can loop through each character using `for...of`. Strings also act like arrays (you can access characters by index) but are **immutable** (cannot be changed directly).
+
+```js
+//Iterating Over Strings
+
+let word = "JS";
+for (let ch of word) {
+  console.log(ch);
+}
+// Output: J  S
+```
+
+#### String like behaviour
+
+| Operation       | Example                  | Result                  |
+| --------------- | ------------------------ | ----------------------- |
+| Access by index | `"Hi"[0]`                | `"H"`                   |
+| Length          | `"Hi".length`            | `2`                     |
+| Loop            | `for (let c of "Hi") {}` | Iterates over each char |
+
+#### Concatenation
+
+```js
+let a = "Front";
+let b = "End";
+console.log(a + b);        // FrontEnd
+console.log(`${a}-${b}`);  // Front-End
+```
+
+#### Common string methods
+
+| Method           | Example                   | Output   |
+| ---------------- | ------------------------- | -------- |
+| `.toUpperCase()` | `"js".toUpperCase()`      | `"JS"`   |
+| `.toLowerCase()` | `"JS".toLowerCase()`      | `"js"`   |
+| `.includes("a")` | `"Java".includes("a")`    | `true`   |
+| `.slice(0,4)`    | `"JavaScript".slice(0,4)` | `"Java"` |
+
+### Math Object
+
+The Math Object provides built-in mathematical methods and constants. 
+
+| Method / Property | Description              | Example           | Output       |
+| ----------------- | ------------------------ | ----------------- | ------------ |
+| `Math.PI`         | π constant               | `Math.PI`         | `3.14159...` |
+| `Math.round(x)`   | Round to nearest integer | `Math.round(4.7)` | `5`          |
+| `Math.floor(x)`   | Round down               | `Math.floor(4.7)` | `4`          |
+| `Math.ceil(x)`    | Round up                 | `Math.ceil(4.1)`  | `5`          |
+| `Math.pow(a,b)`   | Power                    | `Math.pow(2,3)`   | `8`          |
+| `Math.sqrt(x)`    | Square root              | `Math.sqrt(9)`    | `3`          |
+| `Math.random()`   | Random number (0–1)      | `Math.random()`   | e.g. `0.57`  |
+| `Math.abs(x)` | Returns the absolute (positive) value | `Math.abs(-7.5)` | `7.5` |
+| `Math.sign(x)` | Returns sign: `1` (positive), `0`, or `-1` | `Math.sign(-10)` | `-1` |
+| `Math.trunc(x)` | Removes fractional part | `Math.trunc(4.9)` | `4` |
+
+### `typeof` operator 
+
+The `typeof` operator checks the data type of a value or variable. 
+
+**Syntax**
+
+```js
+typeof value;
+```
+
+| Example               | Output                        |
+| --------------------- | ----------------------------- |
+| `typeof "Hello"`      | `"string"`                    |
+| `typeof 42`           | `"number"`                    |
+| `typeof true`         | `"boolean"`                   |
+| `typeof undefined`    | `"undefined"`                 |
+| `typeof null`         | `"object"` *(known JS quirk)* |
+| `typeof [1,2,3]`      | `"object"`                    |
+| `typeof function(){}` | `"function"`                  |
+
+Used for **type checking** before performing operations.
+
+## Errors and common types of errors in JS
+
+An error can be defined as a faulty piece of code that prevents the program from further execution, an error gets thrown and the program stops.
+
+| Type                | Description                             | Example                               |
+| ------------------- | --------------------------------------- | ------------------------------------- |
+| **Syntax Error**    | Code written incorrectly                | `console.log("Hi"` → missing `)`      |
+| **Reference Error** | Using an undefined variable             | `console.log(x)` when `x` not defined |
+| **Type Error**      | Performing invalid operation on a value | `123.toUpperCase()`                   |
+| **Logical Error**   | Code runs but produces wrong result     | Using `+` instead of `*`              |
+
+
+### The `try...catch` block
+
+Handles error such that the program doesn't crash
+
+```js
+try {
+  // code that might throw an error
+} catch (error) {
+  console.log("An error occurred:", error.message);
+}
+
+//example:
+
+try {
+  let result = 10 / 0;
+  console.log(result);
+  nonExistentFunction(); // throws error
+} catch (e) {
+  console.log("Error caught:", e.message);
+}
+
+
+//output:
+
+Infinity
+Error caught: nonExistentFunction is not defined
+
+```
+
+### `throw` keyword
+
+Manually generate (throw) an error when something goes wrong
+
+```js
+function divide(a, b) {
+  if (b === 0) throw new Error("Division by zero!");
+  return a / b;
+}
+
+try {
+  console.log(divide(10, 0));
+} catch (e) {
+  console.log(e.message);
+}
+
+// output: `Division by zero`
+```
+Note that you can use a throw keyword outside of a try block, but you won't be able to catch it.
+
+| Keyword   | Purpose                               |
+| --------- | ------------------------------------- |
+| `try`     | Code to test for errors               |
+| `catch`   | Runs if an error occurs               |
+| `throw`   | Manually trigger an error             |
+| `finally` | Runs regardless of success or failure |
+
+**Example:**
+
+```js
+try {
+  console.log("Start");
+  throw new Error("Oops!");
+} catch (e) {
+  console.log("Caught error");
+} finally {
+  console.log("Always runs");
+}
+/*Output
+Start
+Caught error
+Always runs*/
+```
+
+| Value       | Meaning                   | Example                               |
+| ----------- | ------------------------- | ------------------------------------- |
+| `undefined` | Declared but not assigned | `let a; console.log(a); // undefined` |
+| `null`      | Intentional empty value   | `let b = null;`                       |
+| `""`        | Empty string              | `let c = "";`                         |
+
+Use `===` to distinguish `null` and `undefined`.
+
+**Example:**
+
+```js
+function printName(name) {
+  if (typeof name !== "string" || name === "") {
+    console.log("Invalid name");
+    return;
+  }
+  console.log("Name:", name);
+}
+
+/*Output:
+Name: Udhay
+Invalid name
+*/
+```
+
+```js
+if
+}
