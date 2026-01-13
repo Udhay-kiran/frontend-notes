@@ -1322,4 +1322,136 @@ Bootstrap components often rely on utilities:
 | `shadow`      | Box shadow      |
 | `rounded`     | Rounded corners |
 
+Bootstrap documentation: https://getbootstrap.com/docs
 
+Foundation : https://get.foundation/
+
+Pure.css : https://pure-css.github.io/
+
+tailwind css: https://tailwindcss.com/
+
+UIKit: https://getuikit.com/
+
+MVP.css: https://andybrewer.github.io/mvp/
+
+
+### Static and Dynamic content
+
+#### Static Content
+
+1. Content that **does not change** unless the file itself is updated.
+2. Same for every user.
+3. Typically written in plain HTML/CSS.
+
+**Examples include:**  Blog pages, Documentation pages etc.
+
+```html
+<h1>Welcome to Little Lemon</h1>
+<p>We serve fresh food daily.</p>
+```
+
+#### Dynamic Content
+
+1. Content that changes based on data, user actions, or state.
+2. Generated or updated at runtime.
+3. Often uses JavaScript and APIs.
+
+**Examples include:** Logged-in user dashboards, shopping carts and social media feeds.
+
+```js
+document.querySelector("h1").textContent = "Welcome back, Alex!";
+```
+
+**Caching:** A saved copy of dynamic content readily available upon request.
+
+### Single page application
+
+A Single Page Application loads one HTML page, then dynamically updates content without full page reloads.
+
+**Key characteristics:**
+
+Faster user experience
+
+Content updates via JavaScript
+
+Communicates with APIs (JSON)
+
+Navigation handled in the browser
+
+**Traditional Website vs SPA:**
+
+| Traditional Website          | SPA                         |
+| ---------------------------- | --------------------------- |
+| Reloads page on every action | Updates content dynamically |
+| Server renders new HTML      | Browser updates UI          |
+| Slower transitions           | Smooth, app-like experience |
+
+
+**Examples:** Gmail, Facebook, Twitter, Netflix
+
+### REACT
+
+React is a JavaScript library for building user interfaces, created by Facebook (Meta)
+
+- Component based architecture
+- Efficient UI updates
+- Declarative syntax
+- Reusable components
+
+React focuses only on the view layer (UI), not the full application.
+
+
+#### How react works?
+
+React works by:
+
+1. Splitting UI into components.
+2. Each component has state and props
+3. When state changes:
+
+   - React re-renders the component.
+   - Virtual DOM compares changes
+   - Only necessary updates hit the real DOM.
+
+
+### The Virtual DOM
+
+**The Document Object Model** is the browser’s tree representation of HTML. Updating the real DOM is slow.
+
+- It is a lightweight copy of the real DOM
+- It lives in memory
+- Used by react to optimise updates.
+
+#### How Virtual DOM works
+
+- State changes
+- New Virtual DOM is created.
+- React compares old vs new (diffing)
+- Only changes nodes are updated in real DOM
+
+This leads to better performance, fewer direct DOM manipulations and predictable rendering. 
+
+### Component Hierarchy
+
+A component is a reusable UI building block. (Exxamples: Header, Menu, Footer, button, card)
+
+Components are nested inside eachother, forming a tree. This leads to better organization, reusability, easier maintenance and clear data flow. 
+
+```css
+App
+├── Header
+├── Menu
+│   ├── MenuItem
+│   ├── MenuItem
+├── Footer
+```
+
+**React Alternatives:**
+
+| Framework / Library | Advantage/Uses                 |
+| ------------------- | ------------------------------ |
+| **Vue**             | Easy to learn, reactive        |
+| **Angular**         | Full framework, opinionated    |
+| **Svelte**          | Compiles to JS, no Virtual DOM |
+| **SolidJS**         | Fine-grained reactivity        |
+| **jQuery**          | DOM manipulation (legacy)      |
