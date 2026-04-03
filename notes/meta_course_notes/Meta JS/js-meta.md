@@ -1840,3 +1840,252 @@ Events are actions that occur on a webpage (clicking, typing, scrolling, etc.), 
 | `onmouseover` | Mouse hovers over element | Change color or show tooltip |
 | `onchange`    | Input value changes       | Validate input               |
 | `onload`      | Page finishes loading     | Initialize app               |
+
+
+## JSON (JavaScript Object Notation)
+
+### What is JSON?
+
+- A lightweight **data exchange format**
+- Based on **JavaScript object syntax**
+- Used to send/receive data between client and server
+
+**Example:**
+
+```json
+{
+  "name": "Alex",
+  "age": 25,
+  "isStudent": false
+}
+```
+
+#### JSON vs Javascript Object
+
+| Feature           | JSON                         | JavaScript Object |
+| ----------------- | ---------------------------- | ----------------- |
+| Keys              | Must be in **double quotes** | Quotes optional   |
+| Data types        | Limited                      | More flexible     |
+| Functions allowed | No                           | Yes             |
+| Purpose           | Data transfer                | Logic + data      |
+
+#### JSON methods in Javascript
+
+**Convert object to JSON:**
+
+```js
+const user = { name: "Alex", age: 25 };
+const jsonStr = JSON.stringify(user);
+```
+
+**Convert JSON to object:**
+
+```js
+const obj = JSON.parse(jsonStr);
+```
+
+## Testing and JavaScript Environments
+
+JavaScript is not limited to the browser.  
+It can also run on the **server** using **Node.js**.
+
+### Node.js
+
+- A runtime that allows JavaScript to run outside the browser
+- Used for backend development, APIs, tools
+
+### Testing
+
+Confirming that software works as specified in the software's requirements.
+Testing ensures your code: Conciseness, Clarity and Repeatability
+
+- Works correctly
+- Handles edge cases
+- Doesn’t break when updated
+
+
+**Why testing matters:**
+
+- Reduces bugs
+- Improves reliability
+- Helps maintain large projects
+
+#### Types of Testing
+
+| Type                    | Description                                   |
+| ----------------------- | --------------------------------------------- |
+| **Unit Testing**        | Test individual functions/components          |
+| **Integration Testing** | Test how multiple parts work together         |
+| **End-to-End (E2E)**    | Test full application flow (user perspective) |
+
+Unit is the smallest piece of code that you can test seperately from the rest of the app. 
+
+#### Red-Green Refractor Cycle
+
+**Refactoring:** Updating code without affecting the results it produces.
+
+1. **Red:** Write a test that **fails**. No implementation yet.
+2. **Green:** Write the **minimum code** to pass the test.
+3. **Refactor:** Improve code (clean, optimize). Ensure tests still pass without changing results.
+
+
+#### Manual vs Automated Testing
+
+| Type | Description | Example |
+|------|-------------|----------|
+| **Manual Testing** | Humans test the app manually | Clicking buttons, filling forms |
+| **Automated Testing** | Code tests the app | Jest test cases |
+
+### JEST
+
+- A **JavaScript testing framework**
+- Used to write and run **automated tests**
+- Works well with **React / Node / Frontend apps**
+
+**Basic Example:**
+
+```js
+function add(a, b) {
+  return a + b;
+}
+
+test("adds two numbers", () => {
+  expect(add(2, 3)).toBe(5);
+});
+```
+
+#### Key Functions
+
+| Function   | Purpose               |
+| ---------- | --------------------- |
+| `test()`   | Defines a test case   |
+| `expect()` | Value to test         |
+| `.toBe()`  | Checks exact equality |
+
+#### Common Matches
+
+| Matcher        | Description                            | Example                      |
+| -------------- | -------------------------------------- | ---------------------------- |
+| `toBe()`       | Exact value match                      | `expect(2+2).toBe(4)`        |
+| `toEqual()`    | Deep equality (objects/arrays)         | `expect(obj).toEqual({...})` |
+| `toBeTruthy()` | Checks truthy value                    | `expect(val).toBeTruthy()`   |
+| `toBeFalsy()`  | Checks falsy value                     | `expect(val).toBeFalsy()`    |
+| `toContain()`  | Checks if value exists in array/string | `expect(arr).toContain(3)`   |
+
+#### Unit testing with JEST
+
+Testing small, individual functions
+
+```js
+function isEven(num) {
+  return num % 2 === 0;
+}
+
+test("checks even numbers", () => {
+  expect(isEven(4)).toBe(true);
+});
+```
+
+### Mocking in JEST
+
+Mocking replaces real functions or modules with fake versions. Used when: API calls, Database access, External dependencies.
+
+**Example: Mock Function**
+
+```js
+const mockFn = jest.fn();
+
+mockFn();
+mockFn();
+
+expect(mockFn).toHaveBeenCalledTimes(2);
+```
+
+**Example: Mocking API**
+
+```js
+global.fetch = jest.fn(() =>
+  Promise.resolve({
+    json: () => Promise.resolve({ data: "test" })
+  })
+);
+
+test("fetches data", async () => {
+  const res = await fetch();
+  const data = await res.json();
+
+  expect(data.data).toBe("test");
+});
+```
+
+#### Snapshot Testing
+
+- Saves a snapshot of UI output
+- Compares future output with saved version
+- Detects unexpected changes.
+
+
+### Test File Structure in Jest
+
+- Tests are usually written in separate files
+- Common naming:
+  - `add.js` → main code
+  - `add.test.js` → test file
+
+**Example:**
+
+```js
+// add.js
+export function add(a, b) {
+  return a + b;
+}
+
+// add.test.js
+import { add } from "./add";
+
+test("adds two numbers", () => {
+  expect(add(2, 3)).toBe(5);
+});
+```
+
+Test-Driven Development is a process where you:
+
+👉 **Write tests BEFORE writing the actual code**
+
+Instead of:
+- Write code → then test
+
+You do:
+- Write test → then write code
+
+---
+
+### TDD Cycle (Red → Green → Refactor)
+
+#### Red (Failing Test)
+
+- Write a test for functionality
+- The test **fails** (because code doesn't exist yet)
+
+```js
+test("adds 2 numbers", () => {
+  expect(add(2, 3)).toBe(5);
+});
+```
+
+#### Green (Make it pass)
+
+```js
+function add(a, b) {
+  return a + b;
+}
+```
+
+
+#### Refractor (Improve Code)
+
+- Clean and optimize code
+- Ensure tests still pass
+
+// Same logic, cleaner structure if needed.
+
